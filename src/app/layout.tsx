@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
+<<<<<<< HEAD
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Providers } from "@/components/providers"
+=======
+import { ClerkProvider, SignInButton, SignUpButton, SignIn, SignUp, UserButton, SignedOut, SignedIn } from '@clerk/nextjs'
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import {dark} from "@clerk/themes"
+import { Button } from "@/components/ui/button";
+>>>>>>> 7dfdd214e18388f8e0a37817b698268d1720e561
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +47,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+<<<<<<< HEAD
       
+=======
+      <ClerkProvider
+      appearance={{
+        theme:dark,
+      }}>
+>>>>>>> 7dfdd214e18388f8e0a37817b698268d1720e561
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -49,7 +65,21 @@ export default function RootLayout({
             defaultTheme="dark"
             enableSystem
             disableTransitionOnChange>
+<<<<<<< HEAD
              <Providers>
+=======
+              <SignedOut>
+                <SignInButton/>
+                <SignUpButton>
+                  <button>
+                    Sign Up
+                  </button>
+                </SignUpButton>
+              </SignedOut>
+              <SignedIn>
+                <UserButton/>
+              </SignedIn>
+>>>>>>> 7dfdd214e18388f8e0a37817b698268d1720e561
            {children}
            </Providers>
         </ThemeProvider>
